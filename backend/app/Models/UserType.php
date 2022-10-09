@@ -10,8 +10,8 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 class UserType extends Eloquent
 {
     use HasFactory;
-    public function users()
-    {
-        return $this->hasMany(User::class, 'user_type','type');
-    }
+    // public function users()
+    // {
+    //     return $this->hasMany(User::class, 'user_type','type');
+    // }
 }

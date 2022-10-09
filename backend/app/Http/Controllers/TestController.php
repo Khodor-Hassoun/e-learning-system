@@ -17,16 +17,9 @@ class TestController extends Controller
         $users = User::all()->first();
         $types = UserType::all();
         $course = Course::all();
-        // $user = User::where('name','Khodor')->get();
-        // $user = new User();
-        
-        // return $user->userType;
-
-
-
 
         return response()->json([
-            "data" => $users->userType->_id
+            "data" => $users->userType
         ]);
     }
     function createInstructor(Request $request){
@@ -46,10 +39,15 @@ class TestController extends Controller
     }
     function getCourses(){
         $course = Course::where('name','Java')->first();
-        return $course->students;
+        $teachers = $course->instructors[3];
+        $instructors = User::where('email',$teachers)->get();
+
+        // $teachers = $course->instructorz;
+        // echo gettype($teachers);
 
         return response()->json([
-            'user' => $course[0]->students
+            // 'course' => $course->instructorz,
+            'teachers'=>$instructors
         ]);
     }
 }
