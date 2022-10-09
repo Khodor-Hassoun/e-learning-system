@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/test', [TestController::class, 'getUsers']);
+Route::post('/add/teacher', [TestController::class, 'createInstructor']);
+Route::get('/add/courses', [TestController::class, 'getCourses']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

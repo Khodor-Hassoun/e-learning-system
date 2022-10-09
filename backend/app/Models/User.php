@@ -8,13 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use App\Models\UserType;
 
 
 class User extends Eloquent
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $connection = 'mongodb';
-    protected $collection = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -24,6 +23,7 @@ class User extends Eloquent
         'name',
         'email',
         'password',
+        'user_type',
     ];
 
     /**
@@ -32,7 +32,7 @@ class User extends Eloquent
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        // 'password',
         'remember_token',
     ];
 
@@ -41,7 +41,12 @@ class User extends Eloquent
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+
+    // public function userType()
+    // {
+    //     return $this->belongsTo(UserType::class, 'user_type', 'type');
+    // }
 }

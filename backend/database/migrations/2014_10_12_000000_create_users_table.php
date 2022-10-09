@@ -26,16 +26,24 @@ return new class extends Migration
             $collection->string('type');
         });
         Schema::create('users', function ($collection) {
-            // $collection->id();
             $collection->string('name');
             $collection->string('email')->unique();
-            // $collection->timestamp('email_verified_at')->nullable();
             $collection->string('password');
-            $collection->integer('user_type')->references('__id')->on('user_types');
-            $collection->binary('profile_picture');
-
-            // $collection->rememberToken();
+            $collection->string('user_type');
+            $collection->string('profile_picture');
             $collection->timestamps();
+        });
+        Schema::create('courses', function($collection){
+            $collection->string('name');
+            $collection->json('instructors');
+            $collection->json('students');
+            $collection->json('assignments');
+        });
+        Schema::create('announcements', function($collection){
+            $collection->string('name');
+            $collection->string('instructor');
+            $collection->string('course');
+            $collection->string('message');
         });
     }
 
