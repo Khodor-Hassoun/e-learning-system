@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use App\Models\UserType;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
-class User extends Eloquent
+
+class User extends Eloquent implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
     /**
@@ -49,4 +51,18 @@ class User extends Eloquent
     // {
     //     return $this->belongsTo(UserType::class, 'user_type', 'type');
     // }
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }
