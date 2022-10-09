@@ -48,10 +48,7 @@ class TestController extends Controller
     function getCourses(){
         $course = Course::where('name','Java')->first();
         return $course->students[0];
-        // return $course;
-        // $course = json_encode(Course::all());
-        // return $course['students'];
-        // $course = $course['students'];
+
         return response()->json([
             'user' => $course[0]->students
         ]);
