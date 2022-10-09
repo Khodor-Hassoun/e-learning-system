@@ -14,20 +14,19 @@ class TestController extends Controller
 {
     //
     function getUsers(){
-        $users = User::all();
+        $users = User::all()->first();
         $types = UserType::all();
         $course = Course::all();
         // $user = User::where('name','Khodor')->get();
-        $user = new User();
+        // $user = new User();
         
-        return $user->userType;
+        // return $user->userType;
 
 
 
 
         return response()->json([
-            "status" => "Success",
-            "data" => $user
+            "data" => $users->userType->_id
         ]);
     }
     function createInstructor(Request $request){
@@ -47,7 +46,7 @@ class TestController extends Controller
     }
     function getCourses(){
         $course = Course::where('name','Java')->first();
-        return $course->students[0];
+        return $course->students;
 
         return response()->json([
             'user' => $course[0]->students
