@@ -23,7 +23,7 @@ class TestController extends Controller
         $course = Course::all();
 
         return response()->json([
-            "data" => $users->userType
+            "data" => $users
         ]);
     }
     function createInstructor(Request $request){

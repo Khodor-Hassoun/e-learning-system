@@ -1,22 +1,20 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar'
+import { baseURL } from './helper';
 import axios from 'axios'
-// const axios = require('axios');
+import { useEffect } from 'react';
 function App() {
-  axios.get('http://localhost:8000/api/test').then(res=>{console.log(res)})
-  const array=[
-    {text:'hi', destination:'hello'},
-    {text:'hi', destination:'hello'},
-    {text:'hi', destination:'hello'},
-    {text:'hi', destination:'hello'},
-    {text:'hi', destination:'hello'},
-  ]
+  useEffect(()=>{
+    axios.get(`${baseURL}/test`).then(res => console.log(res))
+  })
+  
+
   return (
     <div className="App">
       <header className="App-header">
         <Navbar />
-        <Sidebar  array = {array}/>
+        <Sidebar  />
       </header>
     </div>
   );
