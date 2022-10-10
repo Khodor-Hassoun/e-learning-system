@@ -33,6 +33,8 @@ Route::get('/test', [TestController::class, 'getUsers']);
 Route::post('/add/teacher', [TestController::class, 'createInstructor']);
 Route::get('/add/courses', [TestController::class, 'getCourses']);
 Route::post('/add', [CourseController::class, 'addCourse']);
+Route::get('/get/{id}', [CourseController::class, 'getCourse']);
+Route::get('/add/{id}', [CourseController::class, 'addUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Hash;
 class TestController extends Controller
 {
     //
+    function getUser($id){
+        $user = User::find($id);
+        return $user;
+    }
     function getUsers(){
         $users = User::all()->first();
         $types = UserType::all();
