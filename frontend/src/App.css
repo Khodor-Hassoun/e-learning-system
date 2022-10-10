@@ -54,8 +54,7 @@
 }
 
 .sidebar-sec{
-  background-color: #2A9D8F;
-  height: 100vh;
+  background-color: #264653;
   width: 200px;
   display: flex;
   flex-direction: column;
