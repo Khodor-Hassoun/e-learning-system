@@ -42,13 +42,7 @@ class TestController extends Controller
 
     }
     function getCourses(){
-        $course = Course::where('name','Java')->first();
-        // $teachers = $course->instructors[3];
-        // $instructors = User::where('email',$teachers)->get();
-        // $courses = Course::all();
-
-        // $teachers = $course->instructorz;
-        // echo gettype($teachers);
+        $course = Course::all();
 
         return response()->json([
             // 'course' => $course->instructorz,

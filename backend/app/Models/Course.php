@@ -10,11 +10,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 class Course extends Eloquent
 {
     use HasFactory;
-    // protected $casts = [
-    //     'intstructors' => 'array',
-    //     'students' => 'array',
-    //     'assignments' => 'array',
-    // ];
+
     protected $fillable = [
         'name',
         'instructors',
