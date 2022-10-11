@@ -6,12 +6,12 @@ const Sidebar = ({array})=>{
             {/* {array.map(({destination,text}) =>{
                 return <p>{text}</p>
             })} */}
+            <p>Add course</p>
+            <p>Add Instructor</p>
+            {/* <p></p>
             <p>Text</p>
             <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
+            <p>Text</p> */}
         </section>
     )
 }

@@ -1,18 +1,13 @@
-
-
-
 function Card({title, instructors}){
-    // const pInstructors = instructorz.map((x)=> <p>{x}</p>)
-    // for(let x of instructorz){
-    //     console.log(x)
-    // }
-
+    const click = ()=>{
+        console.log('clicked', title)
+    }
     return (
-        <div className="course-card">
+        <div className="course-card" onClick={click}>
             <h2>{title}</h2>
             {instructors.map(title => {
-        return <div key={title}>{title}</div>;
-      })}
+                return <div key={title}>{title}</div>;
+            })}
         </div>
     )
 

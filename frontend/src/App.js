@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { baseURL } from './helper';
 import axios from 'axios';
 import './App.css';
@@ -15,11 +15,20 @@ import Card from './components/Card';
 
 
 function App() {
-  useEffect(()=>{
-    axios.get(`${baseURL}/test`).then(res => console.log(res))
-  })
-  const instructors = [1,2,3]
 
+  const [courses, setCourses] = useState([])
+  useEffect(()=>{
+    axios.get(`${baseURL}/test`).
+    then(res => {
+      console.log(res.data.data)
+      for (let name of res.data.data){
+        console.log(name.name)
+        setCourses(res.data.data)
+      }
+    })
+  },[])
+  const instructors = [1,2,3]
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -31,7 +40,15 @@ function App() {
               <Routes>
                 <Route
                   path="/"
-                  element={<Card title={"Java"} instructors={instructors} />}
+                  element={
+                    <div className='dynamic-section'>
+                      {courses.map(course=>{
+                        return <Card title={course.name} instructors={instructors}/>
+
+                      })}
+                      <Card title={"hello"} instructors={instructors}/>
+                    </div>
+                  }
                 />
               </Routes>
             </section>
