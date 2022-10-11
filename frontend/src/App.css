@@ -53,7 +53,9 @@
 .hidden{
   display: none;
 }
-
+.main-content{
+  display: flex;
+}
 .sidebar-sec{
   background-color: #264653;
   width: 200px;
@@ -65,4 +67,20 @@
 }
 .sidebar-sec p{
   width: 100%;
+}
+
+.dynamic-section{
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin: 20px 20px;
+}
+
+.course-card{
+  background-color: #000;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 200px;
 }

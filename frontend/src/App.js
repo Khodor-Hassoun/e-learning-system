@@ -1,11 +1,12 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { useEffect } from 'react';
 import { baseURL } from './helper';
 import axios from 'axios';
-import { useEffect } from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import './App.css';
 
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar'
+import Card from './components/Card';
 
 
 
@@ -24,11 +25,20 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Navbar />
-          <Sidebar  />
+          <section className="main-content">
+            <Sidebar />
+            <section className='dynamic-section'>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Card title={"Java"} instructors={"KALE"} />}
+                />
+              </Routes>
+            </section>
+          </section>
         </header>
-      </div>  
+      </div>
     </BrowserRouter>
-    
   );
 }
 
