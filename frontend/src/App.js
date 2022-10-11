@@ -18,7 +18,7 @@ function App() {
   useEffect(()=>{
     axios.get(`${baseURL}/test`).then(res => console.log(res))
   })
-  
+  const instructors = [1,2,3]
 
   return (
     <BrowserRouter>
@@ -31,7 +31,7 @@ function App() {
               <Routes>
                 <Route
                   path="/"
-                  element={<Card title={"Java"} instructors={"KALE"} />}
+                  element={<Card title={"Java"} instructors={instructors} />}
                 />
               </Routes>
             </section>
