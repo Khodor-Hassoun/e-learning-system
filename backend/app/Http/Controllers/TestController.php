@@ -13,21 +13,17 @@ use Illuminate\Support\Facades\Hash;
 class TestController extends Controller
 {
     //
+    function getUser($id){
+        $user = User::find($id);
+        return $user;
+    }
     function getUsers(){
-        $users = User::all();
+        $users = User::all()->first();
         $types = UserType::all();
         $course = Course::all();
-        // $user = User::where('name','Khodor')->get();
-        $user = new User();
-        
-        return $user->userType;
-
-
-
 
         return response()->json([
-            "status" => "Success",
-            "data" => $user
+            "data" => $users->userType
         ]);
     }
     function createInstructor(Request $request){
@@ -47,10 +43,15 @@ class TestController extends Controller
     }
     function getCourses(){
         $course = Course::where('name','Java')->first();
-        return $course->students[0];
+        $teachers = $course->instructors[3];
+        $instructors = User::where('email',$teachers)->get();
+
+        // $teachers = $course->instructorz;
+        // echo gettype($teachers);
 
         return response()->json([
-            'user' => $course[0]->students
+            // 'course' => $course->instructorz,
+            'teachers'=>$instructors
         ]);
     }
 }

@@ -48,10 +48,10 @@ class User extends Authenticatable implements JWTSubject
     //     'email_verified_at' => 'datetime',
     // ];
 
-    // public function userType()
-    // {
-    //     return $this->belongsTo(UserType::class, 'user_type', 'type');
-    // }
+    public function userType()
+    {
+        return $this->belongsTo(UserType::class, 'user_type', 'type');
+    }
     public function getJWTIdentifier()
     {
         return $this->getKey();
