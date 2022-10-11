@@ -44,7 +44,6 @@ function App() {
                     <div className='dynamic-section'>
                       {courses.map(course=>{
                         return <Card title={course.name} instructors={instructors}/>
-
                       })}
                       <Card title={"hello"} instructors={instructors}/>
                     </div>
